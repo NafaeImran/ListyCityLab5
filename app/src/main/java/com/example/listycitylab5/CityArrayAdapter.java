@@ -1,6 +1,7 @@
-package com.example.listycitylab3;
+package com.example.listycitylab5;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,16 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 
 public class CityArrayAdapter extends ArrayAdapter<City> {
+    private int selected_city=-1;
+    public void setSelectedCity(int position) {
+        selected_city = position;
+        notifyDataSetChanged();
+    }
+
+    public void resetSelectedCity() {
+        selected_city = -1;
+        notifyDataSetChanged();
+    }
     public CityArrayAdapter(Context context, ArrayList<City> cities) {
         super(context, 0, cities);
     }
@@ -32,6 +43,14 @@ public class CityArrayAdapter extends ArrayAdapter<City> {
         TextView provinceName = view.findViewById(R.id.province_text);
         cityName.setText(city.getName());
         provinceName.setText(city.getProvince());
+        if (position==selected_city)
+        {
+            view.setBackgroundColor(Color.RED);
+        }
+        else
+        {
+            view.setBackgroundColor(Color.TRANSPARENT);
+        }
         return view;
     }
 }
