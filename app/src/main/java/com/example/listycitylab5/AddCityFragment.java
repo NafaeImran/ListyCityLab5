@@ -45,7 +45,7 @@ public class AddCityFragment extends DialogFragment {
         EditText editCityName = view.findViewById(R.id.edit_text_city_text);
         EditText editProvinceName = view.findViewById(R.id.edit_text_province_text);
         com.example.listycitylab5.City selected_city=null;
-        Boolean edit=false;
+        boolean edit=false;
         Bundle arguments=getArguments();
         if(arguments!=null)
         {
